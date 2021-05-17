@@ -3,17 +3,17 @@ FROM python:3.9.5
 # Sets the working directory. Commands that follow will use that directory.
 WORKDIR /src
 
-# Copy the contents from . to /src
-COPY . /src
-
-# Run a specified command
+COPY ./app/requirements.txt /src/requirements.txt
 RUN pip install -r requirements.txt
+
+# Copy the contents from ./app to /src
+COPY ./app /src
 
 # Set an environment variable
 ENV FLASK_APP=/src/app.py
 ENV FLASK_ENV=development
 
-# Expose a port
+# Expose a port 
 EXPOSE 5000
 
 ### Everything above here runs at build time

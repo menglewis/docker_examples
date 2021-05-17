@@ -1,0 +1,21 @@
+version: '3'
+services:
+  web:
+    build:
+      context: .
+    environment:
+      - FLASK_ENV=development
+      - CIVIS_API_KEY=${CIVIS_API_KEY}
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./app:/src
+    depends_on:
+      - db
+  db:
+    image: postgres:10.3
+    volumes:
+      - ./postgres-data/postgres:/var/lib/postgresql/data
+      - ./scripts/init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
