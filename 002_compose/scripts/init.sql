@@ -1,10 +1,10 @@
-CREATE USER dlewis PASSWORD 'dlewis';
+CREATE USER dev PASSWORD 'dev';
 CREATE DATABASE tutorial;
-GRANT ALL PRIVILEGES ON DATABASE tutorial TO dlewis;
+GRANT ALL PRIVILEGES ON DATABASE tutorial TO dev;
 
--- CREATE SCHEMA test;
+CREATE SCHEMA test;
 
--- CREATE TABLE test.names (
---     id INT,
---     name TEXT
--- );
+CREATE TABLE test.names (
+    id INT,
+    name TEXT
+);
